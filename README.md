@@ -1,6 +1,6 @@
 # raft-kv
 
-raft-kv is a sample use of the [Hashicorp Raft implementation](https://github.com/hashicorp/raft), it is a study of Hashicorp's Raft implementation.
+raft-kv is a sample use of the [Hashicorp Raft implementation](https://github.com/hashicorp/raft).
 
 ## Running raft-kv
 
