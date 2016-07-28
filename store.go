@@ -29,6 +29,8 @@ func init() {
     store.logger = log.New(os.Stderr, "", log.LstdFlags)
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 type command struct {
     Op    string `json:"op,omitempty"`
     Key   string `json:"key,omitempty"`
@@ -249,24 +251,3 @@ func (f *fsmSnapshot) Persist(sink raft.SnapshotSink) error {
 }
 
 func (f *fsmSnapshot) Release() {}
-
-////////////////////////////////////////////////////////////////////////////////
-
-func readPeersJSON(path string) ([]string, error) {
-    b, err := ioutil.ReadFile(path)
-    if err != nil && !os.IsNotExist(err) {
-        return nil, err
-    }
-
-    if len(b) == 0 {
-        return nil, nil
-    }
-
-    var peers []string
-    dec := json.NewDecoder(bytes.NewReader(b))
-    if err := dec.Decode(&peers); err != nil {
-        return nil, err
-    }
-
-    return peers, nil
-}
