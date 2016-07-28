@@ -2,7 +2,7 @@
 
 raft-kv is a sample use of the [Hashicorp Raft implementation](https://github.com/hashicorp/raft).
 
-## Running raft-kv
+## Setup single node
 
 ```bash
 mkdir -p /tmp/gopath
